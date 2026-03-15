@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모 & 체크리스트</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>메모 & 체크리스트</h1>
+        <p>생각은 메모로, 할 일은 체크리스트로 정리해 보세요.</p>
+      </header>
+
+      <section class="card notes-card">
+        <div class="card-title-row">
+          <h2>노트패드</h2>
+          <button id="clear-notes" class="ghost-btn" type="button">지우기</button>
+        </div>
+        <textarea
+          id="notes"
+          placeholder="자유롭게 메모를 작성하세요..."
+          aria-label="메모 입력"
+        ></textarea>
+        <p class="hint">입력 내용은 자동 저장됩니다.</p>
+      </section>
+
+      <section class="card todo-card">
+        <div class="card-title-row">
+          <h2>체크리스트</h2>
+          <span id="todo-status" class="status">0/0 완료</span>
+        </div>
+
+        <form id="todo-form" class="todo-form">
+          <input
+            id="todo-input"
+            type="text"
+            placeholder="할 일을 입력하세요"
+            aria-label="할 일 입력"
+            maxlength="120"
+            required
+          />
+          <button type="submit">추가</button>
+        </form>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label>
+          <input type="checkbox" class="todo-check" />
+          <span class="todo-text"></span>
+        </label>
+        <button class="delete-btn" type="button" aria-label="할 일 삭제">삭제</button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
